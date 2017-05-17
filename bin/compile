@@ -13,10 +13,10 @@ echo "ls -ltr"
 ls -ltr ./app/oracle
 sleep 10
 
-export LD_LIBRARY_PATH="./app/oracle/instantclient"
-export LIBRARY_PATH="./app/oracle/instantclient"
-export PKG_CONFIG_PATH="./app/oracle/instantclient"
-export PATH="./app/oracle/instantclient:$PATH"
+export LD_LIBRARY_PATH="${PWD}/../../app/oracle/instantclient"
+export LIBRARY_PATH="${PWD}/../../app/oracle/instantclient"
+export PKG_CONFIG_PATH="${PWD}/../../app/oracle/instantclient"
+export PATH="${PWD}/../../app/oracle/instantclient:$PATH"
 
 sleep 10
 
