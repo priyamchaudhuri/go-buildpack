@@ -6,11 +6,12 @@ echo "Please show me the output"
 echo "PWD"
 sleep 10
 echo "PWD"
-echo ${PWD}
+echo ${PWD}/../../app/
 sleep 10
 
 echo "ls -ltr"
 ls -ltr ./app/oracle
+sleep 10
 
 export LD_LIBRARY_PATH="./app/oracle/instantclient"
 export LIBRARY_PATH="./app/oracle/instantclient"
