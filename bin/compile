@@ -4,9 +4,12 @@ set -euo pipefail
 echo "************ START ***************"
 echo "Please show me the output"
 echo "PWD"
+sleep 10
+echo "PWD"
 echo ${PWD}
 sleep 10
 
+echo "ls -ltr"
 ls -ltr ./app/oracle
 
 export LD_LIBRARY_PATH="./app/oracle/instantclient"
@@ -16,8 +19,9 @@ export PATH="./app/oracle/instantclient:$PATH"
 
 sleep 10
 
-echo "LD_LIBRARY_PATH"
-echo $PKG_CONFIG_PATH
+echo "PKG_CONFIG_PATH : ${PKG_CONFIG_PATH}"
+echo "PKG_CONFIG_PATH : $PKG_CONFIG_PATH"
+echo ${PKG_CONFIG_PATH}
 
 sleep 10
 
