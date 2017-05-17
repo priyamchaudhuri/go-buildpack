@@ -5,19 +5,18 @@ echo "************ START ***************"
 echo "Please show me the output"
 echo "PWD"
 echo ${PWD}
-ls -R
 
 export LD_LIBRARY_PATH="./app/oracle/instantclient"
 export LIBRARY_PATH="./app/oracle/instantclient"
 export PKG_CONFIG_PATH="./app/oracle/instantclient"
 export PATH="./app/oracle/instantclient:$PATH"
 
-
+sleep 10
 
 echo "LD_LIBRARY_PATH"
 echo $LD_LIBRARY_PATH
 
-
+sleep 10
 
 echo "************ END ***************"
 BUILD_DIR=$1
