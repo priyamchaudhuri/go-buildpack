@@ -28,10 +28,10 @@ echo "^^^^^^^^^^^^^^^^"
 
 
 
-export LD_LIBRARY_PATH="${PWD}/../../app/oracle/instantclient"
-export LIBRARY_PATH="${PWD}/../../app/oracle/instantclient"
-export PKG_CONFIG_PATH="${PWD}/../../app/oracle/instantclient"
-export PATH="${PWD}/../../app/oracle/instantclient:$PATH"
+export LD_LIBRARY_PATH="/oracle/instantclient"
+export LIBRARY_PATH="/oracle/instantclient"
+export PKG_CONFIG_PATH="/oracle/instantclient"
+export PATH="/oracle/instantclient:$PATH"
 
 sleep 10
 
