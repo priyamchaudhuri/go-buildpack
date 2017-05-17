@@ -3,7 +3,7 @@
 set -e
 
 build=$(cd "$1/" && pwd)
-
+echo "Hi My nameis "
 if test -f "$build/Godeps/Godeps.json" ||
    test -f "$build/vendor/vendor.json"  || # govendor vendor.json file ||
    test -f "${build}/glide.yaml" || # glide
