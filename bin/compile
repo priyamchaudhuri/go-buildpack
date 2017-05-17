@@ -10,7 +10,7 @@ echo ${PWD}/../../app/
 sleep 10
 
 echo "ls -ltr"
-ls -ltr ./app/oracle
+ls -ltr ${PWD}/../../app/
 sleep 10
 
 export LD_LIBRARY_PATH="${PWD}/../../app/oracle/instantclient"
