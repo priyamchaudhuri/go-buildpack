@@ -10,7 +10,7 @@ sleep 10
 
 echo "ls -ltr"
 echo "*********"
-ls -ltr ${PWD}/../../app/
+ls -ltr ${PWD}
 echo "*********"
 sleep 10
 
