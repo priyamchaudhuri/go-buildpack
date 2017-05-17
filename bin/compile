@@ -1,7 +1,19 @@
 #!/bin/bash
 set -euo pipefail
 
+echo "************ START ***************"
 echo "Please show me the output"
+echo "PWD"
+echo ${PWD}
+ls -R
+
+export LD_LIBRARY_PATH=${PWD}
+echo "LD_LIBRARY_PATH"
+echo $LD_LIBRARY_PATH
+
+
+
+echo "************ END ***************"
 BUILD_DIR=$1
 CACHE_DIR=$2
 export BUILDPACK_DIR=`dirname $(readlink -f ${BASH_SOURCE%/*})`
