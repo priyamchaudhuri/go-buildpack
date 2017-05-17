@@ -7,7 +7,13 @@ echo "PWD"
 echo ${PWD}
 ls -R
 
-export LD_LIBRARY_PATH=${PWD}
+export LD_LIBRARY_PATH="./app/oracle/instantclient"
+export LIBRARY_PATH="./app/oracle/instantclient"
+export PKG_CONFIG_PATH="./app/oracle/instantclient"
+export PATH="./app/oracle/instantclient:$PATH"
+
+
+
 echo "LD_LIBRARY_PATH"
 echo $LD_LIBRARY_PATH
 
