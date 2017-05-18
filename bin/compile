@@ -8,18 +8,9 @@ echo "PWD"
 echo ${PWD}
 sleep 10
 
-echo "ls -ltr"
-echo "*********"
-ls -ltr ${PWD}
-echo "*********"
-sleep 10
+build=$(cd "$1/" && pwd)
 
-echo "+++++++++++++"
-ls -lR
-echo "+++++++++++++"
-sleep 10
-
-
+ls -ltr $build/oracle/instantclient
 echo "^^^^^^^^^^^^^^^^"
 
 env
@@ -28,10 +19,10 @@ echo "^^^^^^^^^^^^^^^^"
 
 
 
-export LD_LIBRARY_PATH="/oracle/instantclient"
-export LIBRARY_PATH="/oracle/instantclient"
-export PKG_CONFIG_PATH="/oracle/instantclient"
-export PATH="/oracle/instantclient:$PATH"
+export LD_LIBRARY_PATH="$build/oracle/instantclient"
+export LIBRARY_PATH="$build/oracle/instantclient"
+export PKG_CONFIG_PATH="$build/oracle/instantclient"
+export PATH="$build/oracle/instantclient:$PATH"
 
 sleep 10
 
