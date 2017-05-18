@@ -1,21 +1,21 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "************ START ***************"
-echo "Please show me the output"
-sleep 10
-echo "PWD"
-echo ${PWD}
-sleep 10
+#echo "************ START ***************"
+#echo "Please show me the output"
+#sleep 10
+#echo "PWD"
+#echo ${PWD}
+#sleep 10
 
 build=$(cd "$1/" && pwd)
 
-ls -ltr $build/oracle/instantclient
-echo "^^^^^^^^^^^^^^^^"
-
-env
-
-echo "^^^^^^^^^^^^^^^^"
+#ls -ltr $build/oracle/instantclient
+#echo "^^^^^^^^^^^^^^^^"
+#
+#env
+#
+#echo "^^^^^^^^^^^^^^^^"
 
 
 
@@ -24,21 +24,22 @@ export LIBRARY_PATH="$build/oracle/instantclient"
 export PKG_CONFIG_PATH="$build/oracle/instantclient"
 export PATH="$build/oracle/instantclient:$PATH"
 
-sleep 10
 
-echo "2^^^^^^^^^^^^^^^^"
+#sleep 10
+#
+#echo "2^^^^^^^^^^^^^^^^"
+#
+#env
+#
+#echo "2^^^^^^^^^^^^^^^^"
 
-env
-
-echo "2^^^^^^^^^^^^^^^^"
-
-echo "PKG_CONFIG_PATH : ${PKG_CONFIG_PATH}"
-echo "PKG_CONFIG_PATH : $PKG_CONFIG_PATH"
-echo ${PKG_CONFIG_PATH}
-
-sleep 10
-
-echo "************ END ***************"
+#echo "PKG_CONFIG_PATH : ${PKG_CONFIG_PATH}"
+#echo "PKG_CONFIG_PATH : $PKG_CONFIG_PATH"
+#echo ${PKG_CONFIG_PATH}
+#
+#sleep 10
+#
+#echo "************ END ***************"
 BUILD_DIR=$1
 CACHE_DIR=$2
 export BUILDPACK_DIR=`dirname $(readlink -f ${BASH_SOURCE%/*})`
