@@ -31,8 +31,8 @@ echo "Remove zip files"
 mv $oracleClientDir/instantclient_12_1 $oracleClientDir/instantclient
 echo "rename instantclient_12_1 to instantclient"
 
-cp ./oci8.pc $oracleClientDir/instantclient
-echo "copy oci8.pc"
+#cp ./oci8.pc $oracleClientDir/instantclient
+#echo "copy oci8.pc"
 
 # rename clintsh dynamic library
 cp $oracleClientDir/instantclient/libclntsh.so.12.1 $oracleClientDir/instantclient/libclntsh.so
