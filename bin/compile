@@ -20,6 +20,10 @@ unzip $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip -d $oracleCl
 unzip $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip -d $oracleClientDir
 echo "Unzip zip files"
 
+sleep 10
+
+ls -ltr $oracleClientDir
+
 rm  $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip
 rm  $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip
 echo "Remove zip files"
