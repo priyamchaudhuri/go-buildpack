@@ -1,21 +1,47 @@
 #!/bin/bash
 set -euo pipefail
 
-#echo "************ START ***************"
-#echo "Please show me the output"
-#sleep 10
-#echo "PWD"
-#echo ${PWD}
-#sleep 10
+echo "************ START ***************"
+
 
 build=$(cd "$1/" && pwd)
 
-#ls -ltr $build/oracle/instantclient
-#echo "^^^^^^^^^^^^^^^^"
-#
-#env
-#
-#echo "^^^^^^^^^^^^^^^^"
+# Get git libraries
+export oracleClientDir="$build/oracle"
+mkdir -p $oracleClientDir
+
+ls -lR $oracleClientDir
+
+git clone https://github.com/karthikeyabhaghavatula/instantclient-basic-linux-12.1.git $oracleClientDir
+echo "Clone git libs"
+
+
+unzip $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip -d $oracleClientDir
+unzip $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip -d $oracleClientDir
+echo "Unzip zip files"
+
+rm  $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip
+rm  $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip
+echo "Remove zip files"
+
+mv $oracleClientDir/instantclient_12_1 $oracleClientDir/instantclient
+echo "rename instantclient_12_1 to instantclient"
+
+cp ./oci8.pc $oracleClientDir/instantclient
+echo "copy oci8.pc"
+
+# rename clintsh dynamic library
+cp $oracleClientDir/instantclient/libclntsh.so.12.1 $oracleClientDir/instantclient/libclntsh.so
+echo "rename clintsh dynamic library"
+
+
+ls -ltr $oracleClientDir
+
+sleep 10
+
+
+
+
 
 
 
@@ -25,21 +51,12 @@ export PKG_CONFIG_PATH="$build/oracle/instantclient"
 export PATH="$build/oracle/instantclient:$PATH"
 
 
-#sleep 10
-#
-#echo "2^^^^^^^^^^^^^^^^"
-#
-#env
-#
-#echo "2^^^^^^^^^^^^^^^^"
+echo "Checking env"
+env
 
-#echo "PKG_CONFIG_PATH : ${PKG_CONFIG_PATH}"
-#echo "PKG_CONFIG_PATH : $PKG_CONFIG_PATH"
-#echo ${PKG_CONFIG_PATH}
-#
-#sleep 10
-#
-#echo "************ END ***************"
+
+echo "************ END ***************"
+
 BUILD_DIR=$1
 CACHE_DIR=$2
 export BUILDPACK_DIR=`dirname $(readlink -f ${BASH_SOURCE%/*})`
