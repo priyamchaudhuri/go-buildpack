@@ -24,8 +24,8 @@ rm  $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip
 rm  $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip
 echo "Remove zip files"
 
-#mv $oracleClientDir/instantclient_12_1 $oracleClientDir/instantclient
-#echo "rename instantclient_12_1 to instantclient"
+mv $oracleClientDir/instantclient_12_1 $oracleClientDir/instantclient
+echo "rename instantclient_12_1 to instantclient"
 
 cp ./oci8.pc $oracleClientDir/instantclient
 echo "copy oci8.pc"
