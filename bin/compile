@@ -8,15 +8,15 @@ build=$(cd "$1/" && pwd)
 
 
 
-oci8_dir=`dirname $(readlink -f ${BASH_SOURCE%/*})`
+export oci8_dir=`dirname $(readlink -f ${BASH_SOURCE%/*})`
 echo $oci8_dir
-ls -ltr $oci8_dir/oci8.pc
+
 
 # Get git libraries
 export oracleClientDir="$build/oracle"
 mkdir -p $oracleClientDir
 
-ls -lR $oracleClientDir
+
 
 git clone https://github.com/karthikeyabhaghavatula/instantclient-basic-linux-12.1.git $oracleClientDir
 echo "Clone git libs"
@@ -26,9 +26,7 @@ unzip $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip -d $oracleCl
 unzip $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip -d $oracleClientDir
 echo "Unzip zip files"
 
-sleep 10
 
-ls -ltr $oracleClientDir
 
 rm  $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip
 rm  $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip
@@ -45,9 +43,6 @@ cp $oracleClientDir/instantclient/libclntsh.so.12.1 $oracleClientDir/instantclie
 echo "rename clintsh dynamic library"
 
 
-ls -ltr $oracleClientDir
-
-sleep 10
 
 
 
@@ -59,11 +54,6 @@ export LD_LIBRARY_PATH="$build/oracle/instantclient"
 export LIBRARY_PATH="$build/oracle/instantclient"
 export PKG_CONFIG_PATH="$build/oracle/instantclient"
 export PATH="$build/oracle/instantclient:$PATH"
-
-
-echo "Checking env"
-env
-
 
 echo "************ END ***************"
 
