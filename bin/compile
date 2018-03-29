@@ -55,6 +55,13 @@ export LIBRARY_PATH="$build/oracle/instantclient"
 export PKG_CONFIG_PATH="$build/oracle/instantclient"
 export PATH="$build/oracle/instantclient:$PATH"
 
+
+echo $LD_LIBRARY_PATH
+echo $LIBRARY_PATH
+echo $PKG_CONFIG_PATH
+echo $PATH
+echo $INCLUDE
+
 echo "************ END ***************"
 
 BUILD_DIR=$1
