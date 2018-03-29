@@ -9,11 +9,14 @@ build=$(cd "$1/" && pwd)
 
 
 export oci8_dir=`dirname $(readlink -f ${BASH_SOURCE%/*})`
+echo "oci8_dir"
 echo $oci8_dir
 
 
 # Get git libraries
 export oracleClientDir="$build/oracle"
+echo "oracleClientDir"
+echo $oracleClientDir
 mkdir -p $oracleClientDir
 
 
@@ -53,14 +56,22 @@ echo "rename clintsh dynamic library"
 export LD_LIBRARY_PATH="$build/oracle/instantclient"
 export LIBRARY_PATH="$build/oracle/instantclient"
 export PKG_CONFIG_PATH="$build/oracle/instantclient"
+echo "Existing Path"
+echo $PATH
 export PATH="$build/oracle/instantclient:$PATH"
 
-
+echo "***********PRINTING PATHS********"
+echo "LD_LIBRARY_PATH"
 echo $LD_LIBRARY_PATH
+
+echo "LIBRARY_PATH"
 echo $LIBRARY_PATH
+
+echo "PKG_CONFIG_PATH"
 echo $PKG_CONFIG_PATH
+
+echo "NEW PATH"
 echo $PATH
-echo $INCLUDE
 
 echo "************ END ***************"
 
