@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+#set -ex
 
 ROOTDIR="$( dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" )"
 BINDIR=$ROOTDIR/bin
