@@ -2,6 +2,9 @@ prefixdir=/tmp/app/oracle/instantclient/sdk
 libdir=${prefixdir}
 includedir=${prefixdir}/include
 
+pwd
+echo $libdir
+
 Name: OCI
 Description: Oracle database driver
 Version: 11.2
