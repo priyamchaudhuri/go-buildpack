@@ -10,6 +10,80 @@ export BUILDPACK_DIR=`dirname $(readlink -f ${BASH_SOURCE%/*})`
 source "$BUILDPACK_DIR/scripts/install_go.sh"
 output_dir=$(mktemp -d -t finalizeXXX)
 
+echo "************ START ***************"
+
+
+build=$(cd "$1/" && pwd)
+
+
+
+export oci8_dir=`dirname $(readlink -f ${BASH_SOURCE%/*})`
+echo "oci8_dir"
+echo $oci8_dir
+
+
+# Get git libraries
+export oracleClientDir="$build/oracle"
+echo "oracleClientDir"
+echo $oracleClientDir
+mkdir -p $oracleClientDir
+
+
+
+git clone https://github.com/karthikeyabhaghavatula/instantclient-basic-linux-12.1.git $oracleClientDir
+echo "Clone git libs"
+
+
+unzip $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip -d $oracleClientDir
+unzip $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip -d $oracleClientDir
+echo "Unzip zip files"
+
+
+
+rm  $oracleClientDir/instantclient-basic-linux.x64-12.1.0.2.0.zip
+rm  $oracleClientDir/instantclient-sdk-linux.x64-12.1.0.2.0.zip
+echo "Remove zip files"
+
+mv $oracleClientDir/instantclient_12_1 $oracleClientDir/instantclient
+echo "rename instantclient_12_1 to instantclient"
+
+cp $oci8_dir/oci8.pc $oracleClientDir/instantclient
+echo "copy oci8.pc"
+
+# rename clintsh dynamic library
+cp $oracleClientDir/instantclient/libclntsh.so.12.1 $oracleClientDir/instantclient/libclntsh.so
+echo "rename clintsh dynamic library"
+
+
+
+
+
+
+
+
+
+export LD_LIBRARY_PATH="$build/oracle/instantclient"
+export LIBRARY_PATH="$build/oracle/instantclient"
+export PKG_CONFIG_PATH="$build/oracle/instantclient"
+echo "Existing Path"
+echo $PATH
+export PATH="$build/oracle/instantclient:$PATH"
+
+echo "***********PRINTING PATHS********"
+echo "LD_LIBRARY_PATH"
+echo $LD_LIBRARY_PATH
+
+echo "LIBRARY_PATH"
+echo $LIBRARY_PATH
+
+echo "PKG_CONFIG_PATH"
+echo $PKG_CONFIG_PATH
+
+echo "NEW PATH"
+echo $PATH
+
+echo "************ END ***************"
+
 echo "-----> Running go build finalize"
 GOROOT=$GoInstallDir/go GOPATH=$BUILDPACK_DIR $GoInstallDir/go/bin/go build -o $output_dir/finalize golang/finalize/cli
 
